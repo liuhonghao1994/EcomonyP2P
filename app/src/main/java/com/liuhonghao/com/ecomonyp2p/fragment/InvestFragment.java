@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.liuhonghao.adapter.InvesAdapter;
+import com.liuhonghao.com.adapter.InvesAdapter;
 import com.liuhonghao.com.ecomonyp2p.R;
 import com.liuhonghao.com.ecomonyp2p.base.BaseFragment;
 
@@ -89,7 +89,7 @@ public class InvestFragment extends BaseFragment {
             public void onClick(View v) {
               investVp.setCurrentItem(2);
             }
-                    });
+        });
     }
 
 

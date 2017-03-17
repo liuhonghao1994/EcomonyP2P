@@ -1,4 +1,4 @@
-package com.liuhonghao.adapter;
+package com.liuhonghao.com.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;

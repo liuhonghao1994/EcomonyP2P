@@ -37,17 +37,18 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".WelcomeActivity"
-            android:launchMode="singleTask">
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name="com.liuhonghao.com.activity.LoginActivity"></activity>
         <activity android:name=".MainActivity"
-            android:launchMode="singleTask"
-            android:configChanges="orientation|screenSize|keyboardHidden">
+            >
         </activity>
+        <activity android:name="com.liuhonghao.com.activity.RegesterActivity"></activity>
     </application>
 
 </manifest>

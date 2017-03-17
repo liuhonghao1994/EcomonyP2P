@@ -3,22 +3,21 @@ package com.liuhonghao.com.ecomonyp2p;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
+import android.text.TextUtils;
 import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.liuhonghao.com.activity.BaseActivity;
+import com.liuhonghao.com.activity.LoginActivity;
+import com.liuhonghao.com.bean.UserInfo;
 import com.liuhonghao.com.ecomonyp2p.command.AppManager;
-import com.liuhonghao.com.ecomonyp2p.utils.UIUtils;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends BaseActivity {
     @Bind(R.id.iv_welcome_icon)
     ImageView ivWelcomeIcon;
     @Bind(R.id.pb_bar)
@@ -26,33 +25,29 @@ public class WelcomeActivity extends AppCompatActivity {
     @Bind(R.id.tv_banben)
     TextView tvBanben;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
-        ButterKnife.bind(this);
-        AppManager.getInstance().addActivity(this);
 
-        initData();
+
+    @Override
+    public void initListener() {
+
     }
 
-
-    private void initData() {
-
-        UIUtils.getHandler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.e("TAG", "UIUtils.getHandler()==" + UIUtils.getHandler().toString());
-                pbBar.setVisibility(View.GONE);
-                startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
-                finish();
-
-            }
-        }, 3000);
-
+    @Override
+    public void initData() {
+        AppManager.getInstance().addActivity(this);
         //启动动画
         showAnimation();
         setVersion();
+    }
+
+    @Override
+    public void initTitle() {
+
+    }
+
+    @Override
+    public int getLayoutid() {
+        return R.layout.activity_welcome;
     }
 
     private void setVersion() {
@@ -80,16 +75,44 @@ public class WelcomeActivity extends AppCompatActivity {
     private void showAnimation() {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
         alphaAnimation.setDuration(2000);
+        alphaAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
 
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if(isLog()){
+                    //登录过进入主界面
+                    startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+                    finish();
+                }else{
+                    startActivity(new Intent(WelcomeActivity.this,LoginActivity.class));
+                    finish();
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
         //启动动画
         ivWelcomeIcon.startAnimation(alphaAnimation);
+
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //AppManager.getInstance().removeCurrentActivity();
-        UIUtils.getHandler().removeCallbacksAndMessages(null);
-        AppManager.getInstance().removeActivity(this);
+    private boolean isLog() {
+        UserInfo user = getUser();
+        String name = user.getData().getName();
+        if(TextUtils.isEmpty(name)){
+                return  false;
+        }
+
+
+        return true;
     }
+
+
 }

@@ -9,7 +9,7 @@ public class AppNetConfig {
     //public static final String IPADDRESS = "182.92.5.3";
     //public static final String BASE_URL = "http://" + IPADDRESS + ":8081/P2PInvest/
      public static final String HOST ="47.93.118.241";//提供ip地址
-    //http://47.93.118.241:8081/P2PInvest/product
+    //http://47.93.118.241:8081/P2PInvest/UserRegister
     //提供web应用的地址
     public static final String BASE_URL ="http://" +HOST +":8081/P2PInvest/";
 

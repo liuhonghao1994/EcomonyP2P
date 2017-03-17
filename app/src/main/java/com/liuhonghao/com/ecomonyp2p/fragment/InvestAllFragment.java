@@ -3,7 +3,7 @@ package com.liuhonghao.com.ecomonyp2p.fragment;
 import android.widget.ListView;
 
 import com.alibaba.fastjson.JSON;
-import com.liuhonghao.adapter.InvestAllAdapter3;
+import com.liuhonghao.com.adapter.InvestAllAdapter3;
 import com.liuhonghao.com.ecomonyp2p.R;
 import com.liuhonghao.com.ecomonyp2p.base.BaseFragment;
 import com.liuhonghao.com.ecomonyp2p.base.InvestAllBean;

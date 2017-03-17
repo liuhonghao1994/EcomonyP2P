@@ -1,4 +1,4 @@
-package com.liuhonghao.bean;
+package com.liuhonghao.com.bean;
 
 import java.util.List;
 

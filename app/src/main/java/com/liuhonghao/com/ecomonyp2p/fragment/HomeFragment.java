@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.liuhonghao.bean.HomeBean;
+import com.liuhonghao.com.bean.HomeBean;
 import com.liuhonghao.com.ecomonyp2p.R;
 import com.liuhonghao.com.ecomonyp2p.base.BaseFragment;
 import com.liuhonghao.com.ecomonyp2p.command.AppNetConfig;

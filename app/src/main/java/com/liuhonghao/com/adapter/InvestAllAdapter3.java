@@ -1,4 +1,4 @@
-package com.liuhonghao.adapter;
+package com.liuhonghao.com.adapter;
 
 import com.liuhonghao.com.ecomonyp2p.base.InvestAllBean;
 import com.liuhonghao.viewHolder.BaseHolder;
